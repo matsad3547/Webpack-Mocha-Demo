@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sass/Webpack Demo</title>
+  </head>
+  <body>
+    <h2>How to Set Up Webpack</h2>
+    <ol>
+      <li> Create directory structure</li>
+      <ul>
+      <pre>
+      --parent dir--
+        -/src/
+           -/styles/
+           -/scripts/
+           -/tests/
+        -/public/
+      </pre>
+      </ul>
+      <li><code>$ npm init</code></li>
+      <li><code>$ npm install webpack --save-dev</code></li>
+      <li>Create webpack.config.js file at parent level and populate it</li>
+      <li>Add a entry.js file under /scripts/ and put the required file names in there</li>
+      <li>Install style, sass, and css loaders: <code>$ npm install style-loader css-loader sass-loader node-sass --save-dev</code></li>
+      <li>Run webpack: <code>$ webpack --watch</code></li>
+      <li>Add webpack server: <code>$ npm install webpack-dev-server --save-dev</code></li>
+      <li>Open a new terminal window and run the webpack server in that window: <code>$ node_modules/.bin/webpack-dev-server</code></li>
+      <li>NOTE: Both terminal windows need to be open, running both webpack --watch AND webpack-dev-server</li>
+      <li>In the browser, navigate to: localhost:8080/webpack-dev-server/</li>
+    </ol>
+    <h2>How to Set Up Mocha for TDD</h2>
+    <ol>
+      <li>Install Mocha in the parent directory: <code>$ npm install mocha --save-dev</code></li>
+      <li>Add a 'test' folder</li>
+      <li>Add a tests.js file - as additional features are created, add a file for those tests as feature.tests.js</li>
+      <li>Add tests to the tests.js</li>
+      <li>tests have the following format: <pre>var assert = require('assert');
+
+      describe('Array', function () {
+        describe('indexOf(#)', function() {
+          it ('should return -1 when the value is not present', function () {
+            assert.equal(-1, [1, 2, 3].indexOf(4));
+          });
+        });
+      });</pre></li>
+      <li>Run the tests: <code>$ mocha ./src/test</code></li>
+      <li>Add  to the package.json: <code>"test": "mocha ./src/test/"</code></li>
+      <li>Then you can run all the tests with <code>$ npm test</code></li>
+      <li>You can run tests individually or in groups with : <code>$ mocha ./src/test</code> specifying the directory and/or filename or use the ones from here: <a href="https://docs.npmjs.com/misc/scripts">npm-scripts</a></li>
+    </ol>
+  </body>
+  <script src="./public/bundle.js"></script>
+</html>
