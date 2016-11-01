@@ -50,6 +50,65 @@
       <li>Then you can run all the tests with <code>$ npm test</code></li>
       <li>You can run tests individually or in groups with : <code>$ mocha ./src/test</code> specifying the directory and/or filename or use the ones from here: <a href="https://docs.npmjs.com/misc/scripts">npm-scripts</a></li>
     </ol>
+    <h2>How to Setup a React Project with Sass</h2>
+    <ol>
+      <li>Setup an Initial File Structure</li>
+      <ul>
+        <pre>
+        --parent dir--
+          -/src/
+             -/app/
+             -/tests/
+        </pre>
+      </ul>
+      <li>Create the .gitignore file.  Populate it using the tags <code>Sass</code>, <code>OSX</code>, <code>macOS</code>, <code>Node</code> from here <a href="https://www.gitignore.io/"></a></li>
+      <li>Create a index.html file in /src/</li>
+      <li>Run <code>$ npm init</code></li>
+      <li>Fill in the questions as you please</li>
+      <li>Install webpack: <code>$ npm install webpack --save-dev</code></li>
+      <li>Edit the package.json file to include all the required dependencies:</li>
+      <ul>
+        <pre>
+          {
+            "name": "Project",
+            "version": "1.0.0",
+            "description": "Project Description",
+            "main": "index.js",
+            "scripts": {
+              "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot",
+              "start": "npm run build",
+              "build:prod": "webpack -p && cp src/index.html dist/index.html"
+            },
+            "repository": {
+              "type": "git",
+              "url": "Project"
+            },
+            "author": "You",
+            "license": "ISC",
+            "devDependencies": {
+              "babel-core": "^6.18.0",
+              "babel-loader": "^6.2.7",
+              "babel-preset-es2015": "^6.18.0",
+              "babel-preset-react": "^6.16.0",
+              "node-sass": "^3.10.1",
+              "react-hot-loader": "^3.0.0-beta.6",
+              "sass-loader": "^4.0.2",
+              "webpack": "^1.13.3",
+              "webpack-dev-server": "^1.16.2"
+            },
+            "dependencies": {
+              "react": "^15.3.2",
+              "react-dom": "^15.3.2"
+            }
+          }
+
+        </pre>
+      </ul>
+      <li>Run npm: <code>$ npm start</code></li>
+    </ol>
+    <script src="./public/bundle.js"></script>
+    <footer>
+      <h3>This file is located here: <code>/Users/Boss/Pro/wk-05-lect/index.html</code></h3>
+    </footer>
   </body>
-  <script src="./public/bundle.js"></script>
 </html>
